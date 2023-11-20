@@ -20,15 +20,7 @@ export interface FormFields {
   framework: string;
 }
 
-export const YupFormDynamic = ({ form }: FormInterface) => {
- form ??= [];
-
-  const initialValues: { [key: string]: any } = {};
-
-  for (const input of form) {
-    initialValues[input.name] = input.value;
-
-  }
+export const YupFormDynamic2 = ({ form }: FormInterface) => {
 
   const validationSchema = Yup.object({
     name: Yup.string().required("Username is required"),
@@ -57,8 +49,9 @@ export const YupFormDynamic = ({ form }: FormInterface) => {
     },
     resolver:  yupResolver(validationSchema),
   });
-  const language = watch('languages');
-  console.log({language});
+
+  const languages = watch('languages');
+  console.log({languages});
 
   console.log({errors});
   const onSubmit: SubmitHandler<FormFields> = (data) => {
@@ -70,7 +63,7 @@ export const YupFormDynamic = ({ form }: FormInterface) => {
   return (
     <section className="bg-gradient-to-b from-violet-300 to-teal-300 w-1/2 rounded p-3">
       <form onSubmit={handleSubmit(onSubmit)}>
-        {form.map(({ type, name, placeholder, label, id, options }, index) => {
+        {form?.map(({ type, name, placeholder, label, id, options }, index) => {
           if (type === "text" || type === "password") {
             return (
               <TextInput

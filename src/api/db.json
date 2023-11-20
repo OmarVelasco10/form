@@ -45,9 +45,7 @@
         "label": "Qué lenguajes conoces?",
         "validations": [{ "type": "required" }],
         "options": [
-          { "id": 1, "label": "Javascript", "value": "javascript" },
-          { "id": 2, "label": "PHP", "value": "php" },
-          { "id": 3, "label": "C#", "value": "c#" }
+          { "id": 1, "label": "Javascript", "value": "javascript", "name": "lan-javascript" }
         ]
       },
       {

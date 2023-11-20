@@ -3,6 +3,7 @@
 // import PropTypes from 'prop-types';
 // import { Checkbox, Typography } from 'antd';
 // import './CBCheckbox.scss';
+import React from 'react';
 
 // interface CBCheckboxTypes {
 //     label: string;
@@ -66,6 +67,5 @@
 
 // export default CBCheckbox;
 
-import React from 'react'
 
-
+import react from 'react';

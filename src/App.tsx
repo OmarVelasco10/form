@@ -4,6 +4,7 @@ import { YupFormDynamic } from "./components/YupFormDynamic";
 import { fetchForm } from "./api/fetchForm";
 import { ResultForm } from "./interfaces/Form";
 import { FormProvider, useForm } from "react-hook-form";
+import { YupFormDynamic2 } from './components/YupFormDynamic2';
 // import { Form2 } from "./components/Form2";
 // import { Form } from "./components/Form";
 
@@ -26,7 +27,9 @@ function App() {
         {/* <Form /> */}
         {/* <Form3 /> */}
         <FormProvider {...methods}>
-          <YupFormDynamic form={data} />
+          {/* <YupFormDynamic form={data} />
+           */}
+           <YupFormDynamic2 form={data} />
         </FormProvider>
       </div>
     </div>

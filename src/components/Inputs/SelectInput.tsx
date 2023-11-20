@@ -16,7 +16,6 @@ export const SelectInput = (props: SelectInputInterface) => {
     // const {register} = useFormContext();
 
   const { label, options, name, register, errors } = props;
-  console.log({name});
 
   return (
     <div className="flex flex-col">

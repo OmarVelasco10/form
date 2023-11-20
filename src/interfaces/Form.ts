@@ -19,6 +19,7 @@ export interface Option {
     id:    number;
     label: string;
     value: string;
+    name?: string;
 }
 
 export interface Validation {

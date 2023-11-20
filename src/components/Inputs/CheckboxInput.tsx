@@ -1,18 +1,18 @@
 import React from "react";
 import { Option } from "../../interfaces/Form";
-import { FieldErrors, useFormContext } from "react-hook-form";
+import { FieldErrors, UseFormRegister, useFormContext } from "react-hook-form";
 import { FormFields } from "../YupFormDynamic";
 
 interface CheckboxInputInterface {
   label: string;
   name: string;
   options: Option[] | undefined;
+  register: UseFormRegister<FormFields>;
   errors: FieldErrors<FormFields>;
 }
 
 export const CheckboxInput = (props: CheckboxInputInterface) => {
-  const { register } = useFormContext();
-  const { label, options, name, errors } = props;
+  const { label, options, name, errors, register } = props;
   return (
     <div className="flex flex-col">
       <p className="text-white font-bold">{label}</p>
@@ -20,7 +20,7 @@ export const CheckboxInput = (props: CheckboxInputInterface) => {
         {options?.map(({ value, label, id }) => (
           <div key={`${value}-${id}`} className="flex items-center gap-2">
             <label className="text-white font-medium">{label}</label>
-            <input type="checkbox" value={value} {...register(name)} />
+            <input type="checkbox" value={value} {...register(name as keyof FormFields)} />
           </div>
         ))}
       </div>
