@@ -34,7 +34,7 @@ export const TextInput = (props: TextInputInterface) => {
         value={field.value}
         type={type}
         placeholder={placeholder}
-        className="rounded p-1"
+        className="rounded p-1 bg-transparent-50"
         autoComplete="on"
         onChange={async (e: any) => {
           field.onChange(e);

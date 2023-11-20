@@ -19,7 +19,7 @@ export const RadioInput = (props: RadioInputInterface) => {
   return (
     <div className="flex flex-col">
       <p className="text-white font-bold">{label}</p>
-      <div className="flex items-center gap-2">
+      <div className="flex gap-2 flex-col items-start lg:flex-row ">
         {options?.map(({ value, label, id }) => (
           <div key={`${value}-${id}`} className="flex items-center gap-2">
             <label className="text-white font-medium">{label}</label>

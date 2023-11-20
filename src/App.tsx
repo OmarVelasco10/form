@@ -23,7 +23,7 @@ function App() {
   }, []);
 
   return (
-      <div className="flex w-full h-screen bg-black">
+      <div className="flex w-full h-screen">
         <div className="w-full flex items-center justify-center">
           {/* <Form2 /> */}
           {/* <Form /> */}

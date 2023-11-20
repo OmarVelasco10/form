@@ -79,7 +79,7 @@ export const YupFormDynamic2 = ({ form }: FormInterface) => {
 
   // console.log(initialValues);
   return (
-    <section className="bg-gradient-to-b from-violet-300 to-teal-300 w-1/2 rounded p-3">
+    <section className="bg-gradient-to-b from-violet-300 to-teal-300 w-1/2 rounded p-3 lg:max-w-sm">
       <form onSubmit={handleSubmit(onSubmit)}>
         {form?.map(({ type, name, placeholder, label, id, options }, index) => {
           if (type === "text" || type === "password") {
@@ -133,7 +133,7 @@ export const YupFormDynamic2 = ({ form }: FormInterface) => {
           throw new Error(`El type: ${type}, no es soportado`);
         })}
 
-        <button type="submit" className="rounded mt-2 p-2 bg-violet-500">
+        <button type="submit" className="rounded mt-2 p-2 bg-violet-500 text-white font-medium">
           Send
         </button>
       </form>

@@ -1,18 +1,41 @@
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { PasswordInput } from "./Inputs/PasswordInput";
+import * as Yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
-interface IFormInput {
+
+export interface IFormInput {
     email: string;
     password: string;
-    remember: boolean
+    remember?: boolean
 }
+
+
+const validationSchema = Yup.object({
+  email: Yup.string().email().required("Email is required"),
+  password: Yup
+    .string()
+    .required("Password is required")
+    .min(5, 'The password must have 5 characters'),
+});
 
 export const Form = () => {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
-  } = useForm<IFormInput>();
+  } = useForm<IFormInput>({
+    defaultValues: {
+      email: '',
+      password: '',
+      remember: false
+    },
+    resolver:  yupResolver(validationSchema),
+
+  });
+
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
 
   return (
@@ -46,21 +69,11 @@ export const Form = () => {
           <label className="text-lg font-medium">
             Password
           </label>
-          <input
-            type="password"
-            autoComplete="on"
-            className="w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent"
-            placeholder="Enter your password"
-            {...register("password", {
-              required: true,
-            })}
-          />
-          {errors.email?.type === 'required' && <p className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">The field is required</p>}
-
+          <PasswordInput register={register} control={control} name='password'/>
         </div>
         <div className="mt-8 flex justify-between items-center">
           <div>
-            <input type="checkbox" value="hola" id="remember" {...register("remember")} />
+            <input type="checkbox" id="remember" {...register("remember")} />
             <label htmlFor="remember" className="ml-2 font-medium text-base">
               Remember for 30 days
             </label>
