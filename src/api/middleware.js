@@ -1,5 +1,6 @@
 module.exports = function (req, res, next) {
-    if (req.method === 'POST' && req.path === '/login') {
+    if (req.method === 'POST' && req.path === '/usuarios') {
+      console.log('entrando a middleware');
       const { usuario, contraseña } = req.body;
       const usuarios = require('./db.json').usuarios;
   

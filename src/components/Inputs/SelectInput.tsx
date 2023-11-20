@@ -1,6 +1,6 @@
 import React from "react";
 import { Option } from "../../interfaces/Form";
-import { FieldErrors, UseFormRegister, useFormContext } from "react-hook-form";
+import { FieldErrors, UseFormRegister, useController, useFormContext } from "react-hook-form";
 import { FormFields } from "../YupFormDynamic";
 
 interface SelectInputInterface {
@@ -9,13 +9,14 @@ interface SelectInputInterface {
   options: Option[] | undefined;
   register: UseFormRegister<FormFields>;
   errors: FieldErrors<FormFields>;
-
+  control: any;
 }
 
 export const SelectInput = (props: SelectInputInterface) => {
     // const {register} = useFormContext();
 
-  const { label, options, name, register, errors } = props;
+  const { label, options, name, register, errors, control } = props;
+  const { field, fieldState } = useController({ name, control });
 
   return (
     <div className="flex flex-col">
@@ -28,10 +29,14 @@ export const SelectInput = (props: SelectInputInterface) => {
           </option>
         ))}
       </select>
-      {
-        errors.name?.message &&    <p  className="bg-red-100 border border-red-400 text-red-700 px-2 py-1 rounded relative"
-        role="alert">{errors?.[name as keyof FormFields]?.message}</p>
-      }
+      {!!fieldState.error && (
+        <p
+          className="bg-red-100 border border-red-400 text-red-700 px-2 py-1 rounded relative"
+          role="alert"
+        >
+          {fieldState.error.message}
+        </p>
+      )}
       {/* {errors.frameworks?.type === "required" && (
       <p
         className="bg-red-100 border border-red-400 text-red-700 px-2 py-1 rounded relative"

@@ -7,6 +7,8 @@ import { CheckboxInput } from "./Inputs/CheckboxInput";
 import { SubmitHandler, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { formApi } from "../api/formApi";
+import { useNavigate } from "react-router-dom";
 
 interface FormInterface {
   form: ResultForm[] | undefined;
@@ -21,6 +23,8 @@ export interface FormFields {
 }
 
 export const YupFormDynamic2 = ({ form }: FormInterface) => {
+  const navigate = useNavigate();
+
 
   const validationSchema = Yup.object({
     name: Yup.string().required("Username is required"),
@@ -50,13 +54,27 @@ export const YupFormDynamic2 = ({ form }: FormInterface) => {
     resolver:  yupResolver(validationSchema),
   });
 
-  const languages = watch('languages');
-  console.log({languages});
+  
 
   console.log({errors});
-  const onSubmit: SubmitHandler<FormFields> = (data) => {
-    console.log("submit");
-    console.log(data);
+  const onSubmit: SubmitHandler<FormFields> = async(data) => {
+    const { name, password} = data;
+    console.log({data});
+    console.log({name, password});
+
+
+    try {
+      const response = await formApi.post('/usuarios', {name, password});
+    console.log({response});
+    
+    if(response.status === 201 ) {
+      console.log('navigate');
+      navigate('/welcome');
+    }
+    } catch (error) {
+      throw new Error('Login failed');
+    }
+
   };
 
   // console.log(initialValues);
@@ -86,6 +104,7 @@ export const YupFormDynamic2 = ({ form }: FormInterface) => {
                 name={name}
                 register={register}
                 errors={errors}
+                control={control}
               />
             );
           } else if (type === "radio") {

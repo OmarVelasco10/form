@@ -8,7 +8,11 @@
         "value": "",
         "placeholder": "Ingrese su nombre",
         "label": "Ingrese su nombre",
-        "validations": [{ "type": "required" }]
+        "validations": [
+          {
+            "type": "required"
+          }
+        ]
       },
       {
         "id": 2,
@@ -18,8 +22,13 @@
         "placeholder": "Password",
         "label": "Ingrese su password",
         "validations": [
-          { "type": "required" },
-          { "type": "minLength", "value": 5 }
+          {
+            "type": "required"
+          },
+          {
+            "type": "minLength",
+            "value": 5
+          }
         ]
       },
       {
@@ -29,11 +38,27 @@
         "value": "",
         "label": "Género",
         "placeholder": "Género",
-        "validations": [{ "type": "required" }],
+        "validations": [
+          {
+            "type": "required"
+          }
+        ],
         "options": [
-          { "id": 1, "label": "Masculino", "value": "masculino" },
-          { "id": 2, "label": "Femenino", "value": "femenino" },
-          { "id": 3, "label": "Desconocido", "value": "desconocido" }
+          {
+            "id": 1,
+            "label": "Masculino",
+            "value": "masculino"
+          },
+          {
+            "id": 2,
+            "label": "Femenino",
+            "value": "femenino"
+          },
+          {
+            "id": 3,
+            "label": "Desconocido",
+            "value": "desconocido"
+          }
         ]
       },
       {
@@ -43,9 +68,18 @@
         "value": "",
         "placeholder": "Lenguajes",
         "label": "Qué lenguajes conoces?",
-        "validations": [{ "type": "required" }],
+        "validations": [
+          {
+            "type": "required"
+          }
+        ],
         "options": [
-          { "id": 1, "label": "Javascript", "value": "javascript", "name": "lan-javascript" }
+          {
+            "id": 1,
+            "label": "Javascript",
+            "value": "javascript",
+            "name": "lan-javascript"
+          }
         ]
       },
       {
@@ -55,17 +89,91 @@
         "value": "",
         "label": "Qué frameworks conoces?",
         "placeholder": "Frameworks",
-        "validations": [{ "type": "required" }],
+        "validations": [
+          {
+            "type": "required"
+          }
+        ],
         "options": [
-          { "id": 1, "label": "ReactJs", "value": "reactjs" },
-          { "id": 2, "label": "Laravel", "value": "laravel" },
-          { "id": 3, "label": ".NET", "value": ".net" }
+          {
+            "id": 1,
+            "label": "ReactJs",
+            "value": "reactjs"
+          },
+          {
+            "id": 2,
+            "label": "Laravel",
+            "value": "laravel"
+          },
+          {
+            "id": 3,
+            "label": ".NET",
+            "value": ".net"
+          }
         ]
       }
     ]
   },
   "usuarios": [
-    { "id": 1, "nombreUsuario": "usuario1", "contraseña": "123" },
-    { "id": 2, "nombreUsuario": "usuario2", "contraseña": "456" }
+    {
+      "id": 1,
+      "nombreUsuario": "usuario1",
+      "contraseña": "123"
+    },
+    {
+      "id": 2,
+      "nombreUsuario": "usuario2",
+      "contraseña": "456"
+    },
+    {
+      "name": "omar",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "name": "omar",
+      "password": "123456",
+      "id": 4
+    },
+    {
+      "name": "test",
+      "password": "12345566",
+      "id": 5
+    },
+    {
+      "name": "testing",
+      "password": "123456",
+      "id": 6
+    },
+    {
+      "name": "omar1",
+      "password": "1234567",
+      "id": 7
+    },
+    {
+      "name": "eee",
+      "password": "eeeeeeeee",
+      "id": 8
+    },
+    {
+      "name": "omar111",
+      "password": "1234567",
+      "id": 9
+    },
+    {
+      "name": "Omar Velasco",
+      "password": "eeeeeeee",
+      "id": 10
+    },
+    {
+      "name": "Omar Velasco 1",
+      "password": "1111111111",
+      "id": 11
+    },
+    {
+      "name": "omar test",
+      "password": "111111111",
+      "id": 12
+    }
   ]
 }
