@@ -1,0 +1,73 @@
+{
+  "formExample": {
+    "result": [
+      {
+        "id": 1,
+        "type": "text",
+        "name": "name",
+        "value": "",
+        "placeholder": "Ingrese su nombre",
+        "label": "Ingrese su nombre",
+        "validations": [{ "type": "required" }]
+      },
+      {
+        "id": 2,
+        "type": "password",
+        "name": "password",
+        "value": "",
+        "placeholder": "Password",
+        "label": "Ingrese su password",
+        "validations": [
+          { "type": "required" },
+          { "type": "minLength", "value": 5 }
+        ]
+      },
+      {
+        "id": 3,
+        "type": "radio",
+        "name": "gender",
+        "value": "",
+        "label": "Género",
+        "placeholder": "Género",
+        "validations": [{ "type": "required" }],
+        "options": [
+          { "id": 1, "label": "Masculino", "value": "masculino" },
+          { "id": 2, "label": "Femenino", "value": "femenino" },
+          { "id": 3, "label": "Desconocido", "value": "desconocido" }
+        ]
+      },
+      {
+        "id": 4,
+        "type": "checkbox",
+        "name": "languages",
+        "value": "",
+        "placeholder": "Lenguajes",
+        "label": "Qué lenguajes conoces?",
+        "validations": [{ "type": "required" }],
+        "options": [
+          { "id": 1, "label": "Javascript", "value": "javascript" },
+          { "id": 2, "label": "PHP", "value": "php" },
+          { "id": 3, "label": "C#", "value": "c#" }
+        ]
+      },
+      {
+        "id": 5,
+        "type": "select",
+        "name": "framework",
+        "value": "",
+        "label": "Qué frameworks conoces?",
+        "placeholder": "Frameworks",
+        "validations": [{ "type": "required" }],
+        "options": [
+          { "id": 1, "label": "ReactJs", "value": "reactjs" },
+          { "id": 2, "label": "Laravel", "value": "laravel" },
+          { "id": 3, "label": ".NET", "value": ".net" }
+        ]
+      }
+    ]
+  },
+  "usuarios": [
+    { "id": 1, "nombreUsuario": "usuario1", "contraseña": "123" },
+    { "id": 2, "nombreUsuario": "usuario2", "contraseña": "456" }
+  ]
+}

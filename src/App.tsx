@@ -1,24 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+// import { Form3 } from "./components/Form3";
+import { YupFormDynamic } from "./components/YupFormDynamic";
+import { fetchForm } from "./api/fetchForm";
+import { ResultForm } from "./interfaces/Form";
+import { FormProvider, useForm } from "react-hook-form";
+// import { Form2 } from "./components/Form2";
+// import { Form } from "./components/Form";
 
 function App() {
+  const methods = useForm();
+  const [data, setData] = useState<ResultForm[]>();
+  useEffect(() => {
+    const getFormInformation = async () => {
+      const formInformation: ResultForm[] = await fetchForm();
+      setData(formInformation);
+    };
+    console.log("Hola", data);
+    getFormInformation();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex w-full h-screen bg-black">
+      <div className="w-full flex items-center justify-center">
+        {/* <Form2 /> */}
+        {/* <Form /> */}
+        {/* <Form3 /> */}
+        <FormProvider {...methods}>
+          <YupFormDynamic form={data} />
+        </FormProvider>
+      </div>
     </div>
   );
 }
